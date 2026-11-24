@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: boardroom-api
+    runtime: node
+    rootDir: .
+    buildCommand: npm install
+    startCommand: npm run start -w server
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.8-flash
+      - key: WEB_APP_URL
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
